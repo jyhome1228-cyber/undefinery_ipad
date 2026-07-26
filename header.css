@@ -1,0 +1,131 @@
+.site-header{
+  grid-template-columns:auto 1fr;
+  column-gap:36px;
+}
+
+.guide-nav{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:clamp(16px,2.15vw,28px);
+  white-space:nowrap;
+}
+
+.guide-nav a{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:48px;
+  padding:2px 0;
+  font-size:11px;
+  font-weight:620;
+  letter-spacing:-.015em;
+  opacity:.62;
+  transition:opacity .22s ease;
+}
+
+.guide-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:5px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .28s var(--ease);
+}
+
+.guide-nav a:hover,
+.guide-nav a:focus-visible,
+.guide-nav a.is-active{
+  opacity:1;
+}
+
+.guide-nav a.is-active::after{
+  transform:scaleX(1);
+}
+
+.guide-nav .nav-inquiry{
+  margin-left:4px;
+  padding-right:2px;
+  font-weight:720;
+  opacity:1;
+}
+
+.guide-nav .nav-inquiry::before{
+  content:"";
+  width:5px;
+  height:5px;
+  margin-right:8px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.section-menu{
+  display:none !important;
+}
+
+@media (min-width:900px) and (max-width:1199px) and (orientation:portrait){
+  .site-header{
+    column-gap:28px;
+  }
+
+  .guide-nav{
+    gap:clamp(15px,1.9vw,22px);
+  }
+
+  .guide-nav a{
+    font-size:10.5px;
+  }
+}
+
+@media (max-width:899px), (orientation:landscape) and (max-height:850px){
+  .site-header{
+    grid-template-columns:auto minmax(0,1fr);
+    gap:18px;
+    padding-right:16px;
+  }
+
+  .guide-nav{
+    min-width:0;
+    justify-self:stretch;
+    justify-content:flex-end;
+    gap:15px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .guide-nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  .guide-nav a{
+    flex:0 0 auto;
+    min-height:44px;
+    font-size:10px;
+  }
+
+  .guide-nav .nav-inquiry::before{
+    display:none;
+  }
+}
+
+@media (max-width:620px){
+  .site-header{
+    padding-left:18px;
+  }
+
+  .wordmark{
+    font-size:15px;
+  }
+
+  .guide-nav{
+    gap:13px;
+  }
+
+  .guide-nav a{
+    font-size:9.5px;
+  }
+}
